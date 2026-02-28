@@ -1,0 +1,62 @@
+[
+  {
+    "id": "P001",
+    "name": "Stealth Pro Laptop",
+    "category": "Laptops",
+    "price": 1299,
+    "description": "High-performance creator laptop.",
+    "tags": ["performance", "gaming", "creator", "high-end"],
+    "rating": 4.7,
+    "image": "/images/laptop.jpg"
+  },
+  {
+    "id": "P002",
+    "name": "BudgetBook Air",
+    "category": "Laptops",
+    "price": 449,
+    "description": "Affordable laptop for students.",
+    "tags": ["student", "budget", "lightweight", "college"],
+    "rating": 4.3,
+    "image": "/images/budget.jpg"
+  },
+  {
+    "id": "P003",
+    "name": "ProStation Desktop",
+    "category": "Desktops",
+    "price": 2199,
+    "description": "Powerful workstation desktop.",
+    "tags": ["workstation", "editing", "performance", "professional"],
+    "rating": 4.6,
+    "image": "/images/desktop.jpg"
+  },
+  {
+    "id": "P004",
+    "name": "NeonBuds X",
+    "category": "Audio",
+    "price": 79,
+    "description": "Noise cancelling earbuds.",
+    "tags": ["audio", "wireless", "music", "portable"],
+    "rating": 4.2,
+    "image": "/images/earbuds.jpg"
+  },
+  {
+    "id": "P005",
+    "name": "UltraWide Monitor",
+    "category": "Monitors",
+    "price": 699,
+    "description": "34-inch immersive monitor.",
+    "tags": ["display", "ultrawide", "productivity", "design"],
+    "rating": 4.5,
+    "image": "/images/monitor.jpg"
+  },
+  {
+    "id": "P006",
+    "name": "MechKey RGB",
+    "category": "Peripherals",
+    "price": 129,
+    "description": "Mechanical RGB keyboard.",
+    "tags": ["keyboard", "rgb", "gaming", "peripheral"],
+    "rating": 4.4,
+    "image": "/images/keyboard.jpg"
+  }
+]
