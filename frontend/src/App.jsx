@@ -9,7 +9,7 @@ export default function App() {
   const [query, setQuery] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/products")
+    fetch(`${import.meta.env.VITE_URL_API}/api/products`)
       .then(res => res.json())
       .then(data => setProducts(data));
   }, []);
