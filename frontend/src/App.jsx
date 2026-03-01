@@ -22,7 +22,7 @@ export default function App() {
   const clearResults = () => {
     setAiProducts(null);
     setSummary("");
-    setQuery(""); // ⭐ clears input also
+    setQuery("");
   };
 
   return (
