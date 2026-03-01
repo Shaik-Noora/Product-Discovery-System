@@ -9,27 +9,27 @@ export default function App() {
   const [query, setQuery] = useState("");
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_URL_API}/api/products`)
+    fetch(`${import.meta.env.VITE_API_URL}/api/products`)
       .then(res => res.json())
       .then(data => setProducts(data));
   }, []);
 
-  const handleResults = (data, q) => {
+  const handleResults = (data) => {
     setAiProducts(data.products);
     setSummary(data.summary);
-    setQuery(q);
   };
 
   const clearResults = () => {
     setAiProducts(null);
     setSummary("");
-    setQuery("");
+    setQuery(""); // ⭐ clears input also
   };
 
   return (
-    <div className="min-h-screen px-6 md:px-16 py-12">
+    <div className="min-h-screen px-4 md:px-12 py-10">
 
-      <div className="text-center max-w-4xl mx-auto">
+      {/* HERO */}
+      <div className="text-center max-w-5xl mx-auto">
         <h1 className="heading-xl">
           Intelligent Product Discovery
         </h1>
@@ -38,16 +38,20 @@ export default function App() {
         </p>
       </div>
 
-      <AskQuery onResults={handleResults} />
+      <AskQuery
+        query={query}
+        setQuery={setQuery}
+        onResults={handleResults}
+      />
 
       {aiProducts && (
-        <div className="max-w-6xl mx-auto mt-8 flex justify-between">
+        <div className="max-w-5xl mx-auto mt-8 flex justify-between items-center">
           <p className="subtle-text">
             Results for “{query}”
           </p>
 
           <button className="btn-ghost" onClick={clearResults}>
-            Clear Results
+            ✕ Clear Results
           </button>
         </div>
       )}

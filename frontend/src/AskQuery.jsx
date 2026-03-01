@@ -1,7 +1,10 @@
 import { useState } from "react";
 
-export default function AskQuery({ onResults }) {
-  const [query, setQuery] = useState("");
+export default function AskQuery({
+  query,
+  setQuery,
+  onResults
+}) {
   const [loading, setLoading] = useState(false);
 
   const askAI = async () => {
@@ -9,17 +12,20 @@ export default function AskQuery({ onResults }) {
 
     setLoading(true);
 
-    const res = await fetch(`${import.meta.env.VITE_URL_API}/api/ask`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ query })
-    });
+    const res = await fetch(
+      `${import.meta.env.VITE_API_URL}/api/ask`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ query })
+      }
+    );
 
     const data = await res.json();
 
-    onResults(data, query);
+    onResults(data);
 
     setLoading(false);
   };
