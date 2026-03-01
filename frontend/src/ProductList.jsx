@@ -63,7 +63,7 @@ export default function ProductList({ products, summary, aiMode }) {
             {/* IMAGE FIX */}
             <div className="h-40 bg-gray-50 flex items-center justify-center">
               <img
-                src={`http://localhost:5000${product.image}`}
+                src={`${import.meta.env.VITE_API_URL}${product.image}`}
                 alt={product.name}
                 className="max-h-full object-contain p-4"
               />
