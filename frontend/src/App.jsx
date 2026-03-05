@@ -7,11 +7,16 @@ export default function App() {
   const [aiProducts, setAiProducts] = useState(null);
   const [summary, setSummary] = useState("");
   const [query, setQuery] = useState("");
+  const [loading, setLoading] = useState(true); // loader state
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_API_URL}/api/products`)
       .then(res => res.json())
-      .then(data => setProducts(data));
+      .then(data => {
+        setProducts(data);
+        setLoading(false);
+      })
+      .catch(() => setLoading(false));
   }, []);
 
   const handleResults = (data) => {
@@ -56,11 +61,18 @@ export default function App() {
         </div>
       )}
 
-      <ProductList
-        products={aiProducts || products}
-        summary={summary}
-        aiMode={!!aiProducts}
-      />
+      {/* LOADER */}
+      {loading ? (
+        <div className="flex justify-center items-center mt-20">
+          <div className="loader"></div>
+        </div>
+      ) : (
+        <ProductList
+          products={aiProducts || products}
+          summary={summary}
+          aiMode={!!aiProducts}
+        />
+      )}
     </div>
   );
 }
