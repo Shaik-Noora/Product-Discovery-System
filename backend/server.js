@@ -59,10 +59,13 @@ ${JSON.stringify(products)}
 
 User query: "${query}"
 
+Find the products from the provided list that best match the user query. 
+If no relevant products are found, return an empty array for products.
+
 Return STRICT JSON:
 {
- "products": ["P001","P002"],
- "summary": "2 sentence shopping assistant explanation explaining WHY these products match and WHEN to choose each."
+ "products": ["array of matching product IDs"],
+ "summary": "2 sentence shopping assistant explanation explaining WHY these products match and WHEN to choose each. If no matching products, politely explain that no matches were found."
 }
 `;
 
@@ -112,7 +115,7 @@ app.post("/api/ask", async (req, res) => {
 
   const ai = await callGemini(query);
 
-  // ⭐ USE AI DECISION
+  // USE AI DECISION
   const result = products.filter(p =>
     ai.products.includes(p.id)
   );
